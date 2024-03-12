@@ -4,35 +4,23 @@ const sectionButton = document.querySelectorAll(".control")
 const allSections = document.querySelector(".main-content")
 
 function PageTransitions() {
-  /* //Button click active class, used to toggle active button in navigation control
+  //Button click active, used to toggle active button in navigation control
   for (let i = 0; i < sectionButton.length; i++) {
     sectionButton[i].addEventListener("click", function () {
-      let currentButton = document.querySelectorAll(".active-btn")
-      currentButton[0].className = currentButton[0].className.replace(
-        "active-btn",
-        ""
-      )
-      this.className += " active-btn"
-    })
-  } */
+      let currentButton = document.querySelector(".active-btn")
+      currentButton.classList.remove("active-btn")
+      this.classList.add("active-btn")
 
-  allSections.addEventListener("click", (e) => {
-    const id = e.target.dataset.id
-    if (id) {
-      //remove selected from all buttons
-      sectionButton.forEach((btn) => {
-        btn.classList.remove("active-btn")
+      //remove and replace active section
+      sections.forEach((section) => {
+        section.classList.remove("active")
       })
-    }
-    e.target.classList.add("active-btn")
 
-    sections.forEach((section) => {
-      section.classList.remove("active")
+      const currentId = this.dataset.id
+      const selectedSection = document.getElementById(currentId)
+      selectedSection.classList.add("active")
     })
-
-    const selectedSection = document.getElementById(id)
-    selectedSection.classList.add("active")
-  })
+  }
 }
 
 PageTransitions()
