@@ -162,6 +162,13 @@ section {
   background-color: var(--color-black);
   display: flex;
   align-items: center;
+  transition: all 0.4s ease-in-out;
+}
+.header-content .left-header .image:hover {
+  background-color: rgb(30, 29, 29);
+  transition: all 0.4s ease-in-out;
+  box-shadow: var(--box-shadow-1);
+  transform: scale(1.02);
 }
 .header-content .left-header .image img {
   width: 100%;
@@ -169,9 +176,12 @@ section {
   -o-object-fit: cover;
      object-fit: cover;
   filter: grayscale(100%);
+  transition: all 0.4s ease-in-out;
 }
 .header-content .left-header .image img:hover {
   filter: grayscale(0%);
+  transform: translateY(-1%) scale(1.02);
+  transition: all 0.4s ease-in-out;
 }
 .header-content .right-header {
   display: flex;
